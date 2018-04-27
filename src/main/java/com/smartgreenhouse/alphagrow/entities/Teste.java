@@ -1,17 +1,21 @@
 package com.smartgreenhouse.alphagrow.entities;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 
 public class Teste {
 
 	@Id
-	public String id;
-	public String nome;
+	private String id;
+	private String nome;
+	private List<TesteFilho>	testeFilho;
 	
 	public Teste() {
 	}
 
-	public Teste(String nome) {
+	public Teste(String nome, List<TesteFilho> testeFilho) {
+		this.testeFilho = testeFilho;
 		this.nome = nome;
 	}
 	
@@ -31,9 +35,28 @@ public class Teste {
 		this.nome = nome;
 	}
 
-	@Override
-	public String toString() {
-		return "Teste [id=" + id + ", nome=" + nome + "]";
+	public List<TesteFilho> getTesteFilho() {
+		return testeFilho;
+	}
+
+	public void setTesteFilho(List<TesteFilho> testeFilho) {
+		this.testeFilho = testeFilho;
 	}
 	
+	@Override
+	public String toString() {
+		String filhos = "";
+		
+		for (TesteFilho tf : testeFilho) {
+			filhos += tf.toString() + "\n";
+		}
+		
+		return "Teste ["+ 
+				"\nid=" + id + ","+ 
+				"\nnome=" + nome + 
+				"\nTeste Filho:[" + 
+					"\n\t" + filhos +
+					"\n ]"+
+				"]";
+	}
 }

@@ -1,5 +1,8 @@
 package com.smartgreenhouse.alphagrow.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartgreenhouse.alphagrow.entities.Teste;
+import com.smartgreenhouse.alphagrow.entities.TesteFilho;
+import com.smartgreenhouse.alphagrow.entities.Usuario;
 import com.smartgreenhouse.alphagrow.enums.TipoControlador;
 import com.smartgreenhouse.alphagrow.models.Controlador;
+import com.smartgreenhouse.alphagrow.repositories.UsuarioRepository;
 import com.smartgreenhouse.alphagrow.services.ControladorService;
 
 //Defindo que este cara eh um REST
@@ -23,6 +29,9 @@ public class ControladorController {
 	//Injecao do servico dos controladores
 	@Autowired
 	private ControladorService controladorService;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	//Definindo que esse metodo estara acessivel atraves dessa URL, e o que o mesmo sera um GET
 	@GetMapping("/teste")
@@ -58,11 +67,32 @@ public class ControladorController {
 	}
 	
 	@PostMapping("/teste-mongodb")
-	public ResponseEntity<Teste> testarMongoDB(){
-		Teste teste = new Teste("Guilherme testando outra vez");
-		teste.setId("5ae0ca83a82da630eca118cd");
-		controladorService.testarMongoDB(teste);
-		return ResponseEntity.ok(teste);
+	public ResponseEntity<Usuario> testarMongoDB(){
+		
+		Usuario usuario = new Usuario();
+		
+		
+		TesteFilho tf1 = new TesteFilho("filho 1");
+		TesteFilho tf2 = new TesteFilho("filho 2");
+		TesteFilho tf3 = new TesteFilho("filho 3");
+		TesteFilho tf4 = new TesteFilho("filho 4");
+		
+		List<TesteFilho> filhos = new ArrayList<>();
+		filhos.add(tf1);
+		filhos.add(tf2);
+		filhos.add(tf3);
+		filhos.add(tf4);
+		
+		Teste teste = new Teste("Testando TesteFilho", filhos);
+		
+		usuario.setEmail("guilherme@guilherme.com");
+		usuario.setPassword("123456");
+		usuario.setUsername("guilherme");
+		usuario.setTeste(teste);
+				
+		usuarioRepository.save(usuario);
+//		controladorService.testarMongoDB(teste);
+		return ResponseEntity.ok(usuario);
 	}
 	
 	

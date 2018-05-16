@@ -26,7 +26,6 @@ import com.smartgreenhouse.alphagrow.services.ControladorService;
 @RequestMapping("/api/controlador")
 public class ControladorController {
 	
-	//Injecao do servico dos controladores
 	@Autowired
 	private ControladorService controladorService;
 	

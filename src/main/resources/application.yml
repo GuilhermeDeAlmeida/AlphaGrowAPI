@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:4lph4gr0w@ds119598.mlab.com:19598/alpha-grow
+    rest:
+      base-path: /api

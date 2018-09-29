@@ -8,7 +8,6 @@ public interface ControladorService {
 
 	String teste();
 	Controlador consultarControladores();
-	Controlador consultarControlador(TipoControlador tipoControlador);
 	Teste testarMongoDB(Teste teste);
 	
 }

@@ -25,36 +25,6 @@ public class ControladorServiceImpl implements ControladorService{
 		return null;
 	}
 
-	@Override
-	public Controlador consultarControlador(TipoControlador tipoControlador) {
-
-		String controlador = tipoControlador.toString();
-		Controlador resposta = new Controlador();
-		
-		
-		switch (controlador) {
-		case "TEMPERATURA":
-			resposta.setTemperatura("--------28o--------");
-			break;
-		case "HUMIDADE":
-			resposta.setHumidade("--------40%--------");
-			break;
-		case "PH":
-			resposta.setPh("--------6%--------");
-			break;
-		case "LUMINOSIDADE":
-			resposta.setLuminosidade("--------76--------");
-			break;
-		default:
-			resposta.setHumidade("Deu errado cara");
-			resposta.setTemperatura("Deu errado cara");
-			resposta.setLuminosidade("Deu errado cara");
-			resposta.setPh("Deu errado cara");
-			break;
-		}
-		
-		return resposta;
-	}
 	
 	@Override
 	public Teste testarMongoDB(Teste teste) {

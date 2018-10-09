@@ -15,8 +15,10 @@ import com.smartgreenhouse.alphagrow.entities.Teste;
 import com.smartgreenhouse.alphagrow.entities.TesteFilho;
 import com.smartgreenhouse.alphagrow.entities.Usuario;
 import com.smartgreenhouse.alphagrow.models.Controlador;
+import com.smartgreenhouse.alphagrow.models.Cultivo;
 import com.smartgreenhouse.alphagrow.repositories.UsuarioRepository;
 import com.smartgreenhouse.alphagrow.services.ControladorService;
+import com.smartgreenhouse.alphagrow.services.CultivoService;
 
 //Defindo que este cara eh um REST
 @RestController
@@ -26,6 +28,9 @@ public class ControladorController {
 	
 	@Autowired
 	private ControladorService controladorService;
+	
+	@Autowired
+	private CultivoService cultivoService;
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -39,32 +44,6 @@ public class ControladorController {
 		//ResponseEntity sera responsavel pelo formato da resposta
 		return ResponseEntity.ok(teste);
 	}
-	
-//	@GetMapping("/status-controladores")
-//	public ResponseEntity<Controlador> consultarControladores(){
-//	
-//		Controlador controlador = new Controlador();
-//		
-//		controlador.setHumidade("25%");
-//		controlador.setLuminosidade("70");
-//		controlador.setPh("3%");
-//		controlador.setTemperatura("19o");
-//		
-//		return ResponseEntity.ok(controlador);
-//	}
-//	
-	
-	
-	
-//	@GetMapping("/status-controlador/{tipo}")
-//	public ResponseEntity<Controlador> consultarControlador(@PathVariable("tipo") String tipo){
-//	
-//		TipoControlador tipoControlador = TipoControlador.valueOf(tipo);
-//		
-//		Controlador controlador = controladorService.consultarControlador(tipoControlador);
-//		
-//		return ResponseEntity.ok(controlador);
-//	}
 	
 	@PostMapping("/cadastarConsulta")
 	public ResponseEntity<String>  cadastrarConsulta(@RequestBody Controlador consulta){
@@ -80,6 +59,13 @@ public class ControladorController {
 		
 		
 		return ResponseEntity.ok(retorno.toString());
+	}
+	
+
+	
+	@GetMapping("/obter-cultivo")
+	public ResponseEntity<Cultivo> obterCultivo(@RequestBody String id){
+		return ResponseEntity.ok(cultivoService.obterCultivo(id));	
 	}
 	
 	@GetMapping("/teste-mongodb")

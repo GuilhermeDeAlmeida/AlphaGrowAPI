@@ -28,10 +28,10 @@ public class ControladorController {
 //	@Autowired
 //	private CultivoService cultivoService;
 	
-//	@GetMapping("/controladores")
-//	public ResponseEntity<List<Controlador>> getControladores(){
-//		return ResponseEntity.ok(controladorService.consultarControladores());
-//	}
+	@GetMapping("/controladores")
+	public ResponseEntity<List<Controlador>> getControladores(){
+		return ResponseEntity.ok(controladorService.consultarControladores());
+	}
 //	
 	@PostMapping("/controlador")
 	public ResponseEntity<Controlador> saveControlador(@RequestBody Controlador controlador){

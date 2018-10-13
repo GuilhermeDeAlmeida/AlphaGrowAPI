@@ -9,10 +9,9 @@ public class Usuario {
 	private String username;
 	private String email;
 	private String password;
-	private Teste teste;
 	
-	public Usuario(Teste teste, String username, String email, String password) {
-		this.teste = teste;
+	
+	public Usuario(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -20,15 +19,7 @@ public class Usuario {
 
 	public Usuario() {
 	}
-
-	public Teste getTeste() {
-		return teste;
-	}
-
-	public void setTeste(Teste teste) {
-		this.teste = teste;
-	}
-
+	
 	public String getUsername() {
 		return username;
 	}

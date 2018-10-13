@@ -1,34 +1,28 @@
 package com.smartgreenhouse.alphagrow.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smartgreenhouse.alphagrow.entities.Teste;
-import com.smartgreenhouse.alphagrow.enums.TipoControlador;
 import com.smartgreenhouse.alphagrow.models.Controlador;
-import com.smartgreenhouse.alphagrow.repositories.TesteRepository;
+import com.smartgreenhouse.alphagrow.repositories.ControladorRepository;
 import com.smartgreenhouse.alphagrow.services.ControladorService;
 
 @Service
 public class ControladorServiceImpl implements ControladorService{
 
 	@Autowired
-	private TesteRepository testeRepository;
+	private ControladorRepository controladorRepository;
 	
-	@Override
-	public String teste() {
-		return "Teste vindo de dentro da implementacao da interface ControladorService";
-	}
-
 	@Override 
-	public Controlador consultarControladores() {
-		return null;
+	public List<Controlador> consultarControladores() {
+		return controladorRepository.findAll();
 	}
 
-	
 	@Override
-	public Teste testarMongoDB(Teste teste) {
-		return testeRepository.save(teste);
+	public Controlador salvarControlador(Controlador controlador) {
+		return controladorRepository.save(controlador);
 	}
 
 	

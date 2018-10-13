@@ -1,13 +1,11 @@
  package com.smartgreenhouse.alphagrow.services;
 
-import com.smartgreenhouse.alphagrow.entities.Teste;
-import com.smartgreenhouse.alphagrow.enums.TipoControlador;
+import java.util.List;
+
 import com.smartgreenhouse.alphagrow.models.Controlador;
 
 public interface ControladorService {
-
-	String teste();
-	Controlador consultarControladores();
-	Teste testarMongoDB(Teste teste);
+	List<Controlador> consultarControladores();
+	Controlador salvarControlador(Controlador controlador);
 	
 }

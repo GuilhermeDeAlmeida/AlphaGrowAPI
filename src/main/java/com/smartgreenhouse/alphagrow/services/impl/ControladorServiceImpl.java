@@ -15,11 +15,11 @@ public class ControladorServiceImpl implements ControladorService{
 	@Autowired
 	private ControladorRepository controladorRepository;
 	
-	@Override 
-	public List<Controlador> consultarControladores() {
-		return controladorRepository.findAll();
-	}
-
+//	@Override 
+//	public List<Controlador> consultarControladores() {
+//		return controladorRepository.findAll();
+//	}
+//
 	@Override
 	public Controlador salvarControlador(Controlador controlador) {
 		return controladorRepository.save(controlador);

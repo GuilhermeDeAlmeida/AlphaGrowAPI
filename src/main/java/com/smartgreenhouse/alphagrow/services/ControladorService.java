@@ -5,7 +5,7 @@ import java.util.List;
 import com.smartgreenhouse.alphagrow.models.Controlador;
 
 public interface ControladorService {
-	List<Controlador> consultarControladores();
+//	List<Controlador> consularControladores();
 	Controlador salvarControlador(Controlador controlador);
 	
 }

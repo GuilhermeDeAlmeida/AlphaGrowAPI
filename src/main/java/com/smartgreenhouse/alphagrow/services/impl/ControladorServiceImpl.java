@@ -36,5 +36,10 @@ public class ControladorServiceImpl implements ControladorService{
 		return controladorRaspRepository.save(controladorRasp);
 	}
 
+	@Override
+	public List<ControladorRasp> consultarControladoresRasp() {
+		return controladorRaspRepository.findAll();
+	}
+
 	
 }

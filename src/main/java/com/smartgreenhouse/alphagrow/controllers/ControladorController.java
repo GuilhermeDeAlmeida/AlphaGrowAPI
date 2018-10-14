@@ -33,16 +33,22 @@ public class ControladorController {
 	public ResponseEntity<List<Controlador>> getControladores(){
 		return ResponseEntity.ok(controladorService.consultarControladores());
 	}
-//	
+
 	@PostMapping("/controlador")
 	public ResponseEntity<Controlador> saveControlador(@RequestBody Controlador controlador){
 		return ResponseEntity.ok(controladorService.salvarControlador(controlador));
 	}	
 	
+	@GetMapping("/controladoresRasp")
+	public ResponseEntity<List<ControladorRasp>> getControladoresRasp(){
+		return ResponseEntity.ok(controladorService.consultarControladoresRasp());
+	}
+	
 	@PostMapping("/controladorRasp")
 	public ResponseEntity<ControladorRasp> salvarControladorRasp(@RequestBody ControladorRasp controladorRasp){
 		return ResponseEntity.ok(controladorService.salvarControladorRasp(controladorRasp));
 	}
+	
 	
 //	@GetMapping("/cultivo")
 //	public ResponseEntity<Cultivo> getCultivo() {

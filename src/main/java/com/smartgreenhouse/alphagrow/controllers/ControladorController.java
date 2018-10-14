@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartgreenhouse.alphagrow.models.Controlador;
+import com.smartgreenhouse.alphagrow.models.ControladorRasp;
 import com.smartgreenhouse.alphagrow.models.Cultivo;
 import com.smartgreenhouse.alphagrow.services.ControladorService;
 //import com.smartgreenhouse.alphagrow.services.CultivoService;
@@ -37,6 +38,11 @@ public class ControladorController {
 	public ResponseEntity<Controlador> saveControlador(@RequestBody Controlador controlador){
 		return ResponseEntity.ok(controladorService.salvarControlador(controlador));
 	}	
+	
+	@PostMapping("/controladorRasp")
+	public ResponseEntity<ControladorRasp> salvarControladorRasp(@RequestBody ControladorRasp controladorRasp){
+		return ResponseEntity.ok(controladorService.salvarControladorRasp(controladorRasp));
+	}
 	
 //	@GetMapping("/cultivo")
 //	public ResponseEntity<Cultivo> getCultivo() {

@@ -11,6 +11,7 @@ public class Cultivo {
 	private String nomeCultivo;
 	private List<Ciclo> ciclos;
 	
+	
 	public String getId() {
 		return id;
 	}
@@ -29,6 +30,4 @@ public class Cultivo {
 	public void setCiclos(List<Ciclo> ciclos) {
 		this.ciclos = ciclos;
 	}
-	
-	
 }

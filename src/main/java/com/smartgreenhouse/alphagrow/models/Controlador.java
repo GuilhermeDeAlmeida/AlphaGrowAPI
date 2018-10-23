@@ -5,6 +5,18 @@ public class Controlador {
 	private String id;
 	private String nomeControlador;
 	private String valor;
+	
+	
+	
+	public Controlador() {
+	}
+
+	public Controlador(String nomeControlador, String valor) {
+		super();
+		this.nomeControlador = nomeControlador;
+		this.valor = valor;
+	}
+	
 	public String getId() {
 		return id;
 	}

@@ -1,5 +1,6 @@
 package com.smartgreenhouse.alphagrow.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,6 @@ public class ControladorServiceImpl implements ControladorService{
 	}
 
 	@Override
-	public Controlador salvarControlador(Controlador controlador) {
-		return controladorRepository.save(controlador);
-	}
-
-	@Override
 	public ControladorRasp salvarControladorRasp(ControladorRasp controladorRasp) {
 		return controladorRaspRepository.save(controladorRasp);
 	}
@@ -40,6 +36,5 @@ public class ControladorServiceImpl implements ControladorService{
 	public List<ControladorRasp> consultarControladoresRasp() {
 		return controladorRaspRepository.findAll();
 	}
-
 	
 }

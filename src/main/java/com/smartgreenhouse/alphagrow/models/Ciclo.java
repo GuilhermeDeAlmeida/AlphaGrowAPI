@@ -1,6 +1,9 @@
 package com.smartgreenhouse.alphagrow.models;
 
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Ciclo {
 	
@@ -9,6 +12,9 @@ public class Ciclo {
 	private Integer duracao;
 	private Date dataInicio;
 	private Date dataFim;
+	private List<Controlador> controladoresAtual;
+	private ControladorRasp controladoresIdeal;
+	private boolean cicloAtual;
 	
 	public String getId() {
 		return id;
@@ -40,7 +46,24 @@ public class Ciclo {
 	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
 	}
-	
+	public List<Controlador> getControladoresAtual() {
+		return controladoresAtual;
+	}
+	public void setControladoresAtual(List<Controlador> controladoresAtual) {
+		this.controladoresAtual = controladoresAtual;
+	}
+	public ControladorRasp getControladoresIdeal() {
+		return controladoresIdeal;
+	}
+	public void setControladoresIdeal(ControladorRasp controladoresIdeal) {
+		this.controladoresIdeal = controladoresIdeal;
+	}
+	public boolean getCicloAtual() {
+		return cicloAtual;
+	}
+	public void setCicloAtual(boolean cicloAtual) {
+		this.cicloAtual = cicloAtual;
+	}
 	
 	
 }

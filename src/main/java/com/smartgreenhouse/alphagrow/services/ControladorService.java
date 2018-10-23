@@ -8,7 +8,7 @@ import com.smartgreenhouse.alphagrow.models.ControladorRasp;
 public interface ControladorService {
 	List<Controlador> consultarControladores();
 	List<ControladorRasp> consultarControladoresRasp();
-	Controlador salvarControlador(Controlador controlador);
+	//Controlador salvarControlador(Controlador controlador);
 	ControladorRasp salvarControladorRasp(ControladorRasp controladorRasp);
 	
 }

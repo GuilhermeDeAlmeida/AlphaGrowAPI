@@ -3,8 +3,6 @@ package com.smartgreenhouse.alphagrow.models;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Ciclo {
 	
 	private String id;
@@ -12,10 +10,19 @@ public class Ciclo {
 	private Integer duracao;
 	private Date dataInicio;
 	private Date dataFim;
+	//Será reflexo do que o rasp salvar na base
 	private List<Controlador> controladoresAtual;
+	//Pre cadastrados as medidas ideiais dos controladores
 	private ControladorRasp controladoresIdeal;
-	private boolean cicloAtual;
+	private Boolean cicloAtual;
+	private Long diaAtual;
 	
+	public Long getDiaAtual() {
+		return diaAtual;
+	}
+	public void setDiaAtual(Long diaAtual) {
+		this.diaAtual = diaAtual;
+	}
 	public String getId() {
 		return id;
 	}
@@ -58,12 +65,13 @@ public class Ciclo {
 	public void setControladoresIdeal(ControladorRasp controladoresIdeal) {
 		this.controladoresIdeal = controladoresIdeal;
 	}
-	public boolean getCicloAtual() {
+	public Boolean getCicloAtual() {
 		return cicloAtual;
 	}
-	public void setCicloAtual(boolean cicloAtual) {
+	public void setCicloAtual(Boolean cicloAtual) {
 		this.cicloAtual = cicloAtual;
 	}
+	
 	
 	
 }

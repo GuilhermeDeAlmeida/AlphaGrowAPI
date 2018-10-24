@@ -9,8 +9,8 @@ public class Cultivo {
 	@Id
 	private String id;
 	private String nomeCultivo;
+	//Será no cultivo que os ciclos estarão atrelados
 	private List<Ciclo> ciclos;
-	
 	
 	public String getId() {
 		return id;

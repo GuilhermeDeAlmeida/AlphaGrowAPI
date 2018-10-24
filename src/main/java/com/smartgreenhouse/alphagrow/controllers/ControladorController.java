@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smartgreenhouse.alphagrow.models.Controlador;
 import com.smartgreenhouse.alphagrow.models.ControladorRasp;
-import com.smartgreenhouse.alphagrow.models.Cultivo;
 import com.smartgreenhouse.alphagrow.services.ControladorService;
-//import com.smartgreenhouse.alphagrow.services.CultivoService;
-import com.smartgreenhouse.alphagrow.services.CultivoService;
 
 //Defindo que este cara eh um REST
 @RestController
@@ -30,6 +27,7 @@ public class ControladorController {
 //	@Autowired
 //	private CultivoService cultivoService;
 	
+	//Controlador
 	@GetMapping("/controladores")
 	public ResponseEntity<List<Controlador>> getControladores(){
 		return ResponseEntity.ok(controladorService.consultarControladores());
@@ -40,6 +38,7 @@ public class ControladorController {
 //		return ResponseEntity.ok(controladorService.salvarControlador(controlador));
 //	}	
 	
+	//Controlador Rasp
 	@GetMapping("/controladoresRasp")
 	public ResponseEntity<List<ControladorRasp>> getControladoresRasp(){
 		return ResponseEntity.ok(controladorService.consultarControladoresRasp());

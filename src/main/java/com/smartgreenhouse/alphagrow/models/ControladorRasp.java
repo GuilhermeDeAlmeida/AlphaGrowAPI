@@ -1,12 +1,23 @@
 package com.smartgreenhouse.alphagrow.models;
 
+import java.util.Date;
+
+import org.springframework.data.annotation.Id;
+
 public class ControladorRasp {
 	
+	@Id
 	private String id;
 	private String temperatura;
 	private String umidade;
+	private Date dataRegistro;
 	
-	
+	public Date getDataRegistro() {
+		return dataRegistro;
+	}
+	public void setDataRegistro(Date dataRegistro) {
+		this.dataRegistro = dataRegistro;
+	}
 	public String getTemperatura() {
 		return temperatura;
 	}

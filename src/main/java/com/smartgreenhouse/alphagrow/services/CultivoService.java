@@ -10,5 +10,6 @@ public interface CultivoService {
 	Cultivo cadastrarCultivo(Cultivo cultivo);
 	List<Cultivo> consultarPropriedades();
 	Cultivo salvarCultivo(Cultivo cultivo);
+	List<Cultivo> obterCultivos();
 
 }

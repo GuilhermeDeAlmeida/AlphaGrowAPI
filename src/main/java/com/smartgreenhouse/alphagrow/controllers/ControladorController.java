@@ -23,20 +23,11 @@ public class ControladorController {
 	@Autowired
 	private ControladorService controladorService;
 	
-//	
-//	@Autowired
-//	private CultivoService cultivoService;
-	
 	//Controlador
 	@GetMapping("/controladores")
 	public ResponseEntity<List<Controlador>> getControladores(){
 		return ResponseEntity.ok(controladorService.consultarControladores());
 	}
-
-//	@PostMapping("/controlador")
-//	public ResponseEntity<Controlador> saveControlador(@RequestBody Controlador controlador){
-//		return ResponseEntity.ok(controladorService.salvarControlador(controlador));
-//	}	
 	
 	//Controlador Rasp
 	@GetMapping("/controladoresRasp")
@@ -49,9 +40,9 @@ public class ControladorController {
 		return ResponseEntity.ok(controladorService.salvarControladorRasp(controladorRasp));
 	}	
 	
-//	@GetMapping("/cultivo")
-//	public ResponseEntity<Cultivo> getCultivo() {
-//		return ResponseEntity.ok(cultivoService.buscarCultivos());
-//	}
+	@GetMapping("")
+	public ResponseEntity<List<Controlador>> obterControladoresIdeias(){
+		return ResponseEntity.ok(controladorService.obterControladoresIdeias());
+	}
 	
 }

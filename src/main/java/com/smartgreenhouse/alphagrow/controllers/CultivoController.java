@@ -21,8 +21,6 @@ public class CultivoController {
 	@Autowired
 	private CultivoService cultivoService;
 	
-	//Android vai acessar essa URL
-	//mandando o cultivo pela qual pretende saber o status do cultivo
 	@GetMapping("/obterCultivo{id}")
 	public ResponseEntity<Cultivo> obterCultivo(@PathVariable(value="id") String id, @RequestParam("idCultivo")String idCultivo){
 		return ResponseEntity.ok(cultivoService.buscarCultivo(idCultivo));
@@ -37,20 +35,5 @@ public class CultivoController {
 	public ResponseEntity<Cultivo> salvarCultivo(@RequestBody Cultivo cultivo){
 		return ResponseEntity.ok(cultivoService.salvarCultivo(cultivo));
 	}
-	
-	
-//	@RequestMapping("/{someID}")
-//	public @ResponseBody int getAttr(@PathVariable(value="someID") String id, 
-//	                                 @RequestParam String someAttr) {
-//	}
-//	@PostMapping("/controladorRasp")
-//	public ResponseEntity<ControladorRasp> salvarControladorRasp(@RequestBody ControladorRasp controladorRasp){
-//		return ResponseEntity.ok(controladorService.salvarControladorRasp(controladorRasp));
-//	}	
-	
-//	@GetMapping("/cultivo")
-//	public ResponseEntity<Cultivo> getCultivo() {
-//		return ResponseEntity.ok(cultivoService.buscarCultivos());
-//	}
 
 }

@@ -1,20 +1,22 @@
 package com.smartgreenhouse.alphagrow.models;
 
-import com.smartgreenhouse.alphagrow.entities.Usuario;
+import org.springframework.data.annotation.Id;
 
 public class Login {
 
+	@Id
+	private String id;
 	private Usuario usuario;
 	private String email;
 	private String senha;
-	private String idCultivo; 
 	
-	public String getIdCultivo() {
-		return idCultivo;
+	public String getId() {
+		return id;
 	}
-	public void setIdCultivo(String idCultivo) {
-		this.idCultivo = idCultivo;
+	public void setId(String id) {
+		this.id = id;
 	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

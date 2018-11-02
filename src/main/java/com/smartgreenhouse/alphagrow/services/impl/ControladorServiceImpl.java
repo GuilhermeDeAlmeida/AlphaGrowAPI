@@ -38,5 +38,11 @@ public class ControladorServiceImpl implements ControladorService{
 	public List<ControladorRasp> consultarControladoresRasp() {
 		return controladorRaspRepository.findAll();
 	}
+
+	@Override
+	public List<Controlador> obterControladoresIdeias() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

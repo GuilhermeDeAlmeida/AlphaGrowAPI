@@ -10,5 +10,6 @@ public interface ControladorService {
 	List<ControladorRasp> consultarControladoresRasp();
 	//Controlador salvarControlador(Controlador controlador);
 	ControladorRasp salvarControladorRasp(ControladorRasp controladorRasp);
+	List<Controlador> obterControladoresIdeias();
 	
 }

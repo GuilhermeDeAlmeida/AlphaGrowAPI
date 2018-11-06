@@ -17,18 +17,18 @@ import com.smartgreenhouse.alphagrow.services.AtuadorService;
 @RequestMapping("/api/atuadores")
 public class AtuadorController {
 	
-//	@Autowired
-//	private AtuadorService atuadorService;
-//	
-//	
-//	@GetMapping()
-//	public ResponseEntity<List<Atuador>> getAtuadores(){
-//		return ResponseEntity.ok(atuadorService.obterListaAtuadores());
-//	}
-//	
-//	@PostMapping
-//	public ResponseEntity<Atuador> salvarAtuador(@RequestBody Atuador atuador){
-//		return ResponseEntity.ok(atuadorService.salvarAtuador(atuador));
-//	}
-//	
+	@Autowired
+	private AtuadorService atuadorService;
+	
+	
+	@GetMapping()
+	public ResponseEntity<List<Atuador>> getAtuadores(){
+		return ResponseEntity.ok(atuadorService.obterListaAtuadores());
+	}
+	
+	@PostMapping
+	public ResponseEntity<Atuador> salvarAtuador(@RequestBody Atuador atuador){
+		return ResponseEntity.ok(atuadorService.salvarAtuador(atuador));
+	}
+	
 }

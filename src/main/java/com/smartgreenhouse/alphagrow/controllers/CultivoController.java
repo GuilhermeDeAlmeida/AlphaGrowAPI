@@ -22,7 +22,7 @@ public class CultivoController {
 	private CultivoService cultivoService;
 	
 	@GetMapping("/obterCultivo{id}")
-	public ResponseEntity<Cultivo> obterCultivo(@PathVariable(value="id") String id, @RequestParam("idCultivo")String idCultivo){
+	public ResponseEntity<Cultivo> obterCultivo(@RequestParam("idCultivo")String idCultivo){
 		return ResponseEntity.ok(cultivoService.buscarCultivo(idCultivo));
 	}
 	

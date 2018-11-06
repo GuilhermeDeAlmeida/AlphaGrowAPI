@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.smartgreenhouse.alphagrow.Rasp.Rasp;
 import com.smartgreenhouse.alphagrow.models.Ciclo;
 import com.smartgreenhouse.alphagrow.models.ControladorRasp;
+import com.smartgreenhouse.alphagrow.repositories.LoginRepository;
 import com.smartgreenhouse.alphagrow.repositories.RaspRepository;
 import com.smartgreenhouse.alphagrow.service.RaspService;
 
@@ -13,6 +14,9 @@ public class RaspServiceImpl implements RaspService {
 
 	@Autowired
 	private RaspRepository raspRepository;
+	
+	@Autowired
+	private LoginRepository loginRepository;
 
 	@Override
 	public Rasp salvarRasp(Rasp rasp) {
@@ -23,7 +27,7 @@ public class RaspServiceImpl implements RaspService {
 	@Override
 	public ControladorRasp obterControladoresIdeais(String token) {
 		ControladorRasp controladorRasp = new ControladorRasp();
-		Rasp rasp = raspRepository.findByToken(token);
+		Rasp rasp = loginRepository.findByToken(token).getUsuario().getRasp();
 		for (Ciclo ciclo : rasp.getCultivo().getCiclos()) {
 			if (ciclo.getCicloAtual()) {
 				controladorRasp = ciclo.getControladoresIdeal();

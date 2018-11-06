@@ -30,4 +30,15 @@ public class Cultivo {
 	public void setCiclos(List<Ciclo> ciclos) {
 		this.ciclos = ciclos;
 	}
+	public Ciclo getCicloAtual() {
+
+		List<Ciclo> ciclos = this.getCiclos();
+		Ciclo cicloAtivo = new Ciclo();
+		for (Ciclo ciclo : ciclos) {
+			if(ciclo.getCicloAtual()) {
+				cicloAtivo = ciclo;
+			}
+		}
+		return cicloAtivo;
+	}
 }

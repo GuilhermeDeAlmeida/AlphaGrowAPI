@@ -11,6 +11,14 @@ public class ControladorRasp {
 	private String temperatura;
 	private String umidade;
 	private Date dataRegistro;
+	private String token;
+	
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
 	public Date getDataRegistro() {
 		return dataRegistro;

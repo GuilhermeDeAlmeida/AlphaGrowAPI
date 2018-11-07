@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smartgreenhouse.alphagrow.models.Autenticacao;
 import com.smartgreenhouse.alphagrow.models.Cultivo;
 import com.smartgreenhouse.alphagrow.models.Login;
 import com.smartgreenhouse.alphagrow.models.Usuario;
@@ -23,7 +24,7 @@ public class AutenticacaoController {
 	private AutenticacaoService autenticacaoService;
 
 	@PostMapping
-	public ResponseEntity<String> efetuarLogin(@RequestBody Login login) {
+	public ResponseEntity<Autenticacao> efetuarLogin(@RequestBody Login login) {
 		return ResponseEntity.ok(autenticacaoService.validarAcesso(login));
 	}
 

@@ -6,6 +6,19 @@ public class Atuador {
 	private boolean estado;
 	private String token;
 
+	
+	
+	public Atuador(String atuador, boolean estado, String token) {
+		super();
+		this.atuador = atuador;
+		this.estado = estado;
+		this.token = token;
+	}
+	
+	public Atuador() {
+		
+	}
+	
 	public String getToken() {
 		return token;
 	}

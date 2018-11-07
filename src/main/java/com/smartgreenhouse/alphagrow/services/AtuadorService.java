@@ -6,7 +6,7 @@ import com.smartgreenhouse.alphagrow.models.Atuador;
 
 public interface AtuadorService {
 
-	List<Atuador> obterListaAtuadores();
+	List<Atuador> obterListaAtuadores(String token);
 
 	Atuador salvarAtuador(Atuador atuador);
 }

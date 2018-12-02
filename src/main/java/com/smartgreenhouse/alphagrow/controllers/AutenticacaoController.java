@@ -29,7 +29,6 @@ public class AutenticacaoController {
 
 	@GetMapping("/obterUsuario{id}")
 	public ResponseEntity<Usuario> obterUsuario(@RequestParam("idUsuario")String idUsuario){
-//	public ResponseEntity<Usuario> obterUsuario(@PathVariable(value = "idUsuario") String idUsuario) {
 		return ResponseEntity.ok(autenticacaoService.obterUsuario(idUsuario));
 	}
 	

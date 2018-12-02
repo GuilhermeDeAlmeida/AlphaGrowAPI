@@ -12,15 +12,15 @@ import com.smartgreenhouse.alphagrow.services.AtuadorService;
 public class AtuadorServiceImpl implements AtuadorService{
 
 	@Override
-	public List<Atuador> obterListaAtuadores() {
-		// TODO Auto-generated method stub	
-		return null;
+	public List<Atuador> obterListaAtuadores(String token) {
+	
+		return AtuadorWriter.obterAtuadores(token);
 	}
 
 	@Override
-	public Atuador salvarAtuador(Atuador atuador) {
-		AtuadorWriter.escreverAtuador(atuador);
-		return null;
+	public Boolean salvarAtuador(Atuador atuador) {
+		
+		return AtuadorWriter.escreverAtuador(atuador);
 	}
 
 }

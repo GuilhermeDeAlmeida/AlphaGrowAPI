@@ -1,0 +1,2 @@
+Atuador:ventilador1
+Valor:false

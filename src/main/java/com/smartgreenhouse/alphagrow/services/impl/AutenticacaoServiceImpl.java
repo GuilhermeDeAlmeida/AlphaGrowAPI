@@ -3,6 +3,7 @@ package com.smartgreenhouse.alphagrow.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smartgreenhouse.alphagrow.models.Autenticacao;
 import com.smartgreenhouse.alphagrow.models.Login;
 import com.smartgreenhouse.alphagrow.models.Usuario;
 import com.smartgreenhouse.alphagrow.repositories.AutenticacaoRepository;
@@ -29,18 +30,21 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
 	}
 
 	@Override
-	public String validarAcesso(Login login) {
+	public Autenticacao validarAcesso(Login login) {
 		
 		Login loginConsultado = loginRepository.findByEmail(login.getEmail());
+		Autenticacao autenticacao = new Autenticacao();
 		if(loginConsultado != null) {
 			if(login.getSenha().equals(loginConsultado.getSenha())) {
-				return loginConsultado.getId();
-//				return loginConsultado.getUsuario().getRasp().getCultivo().getId();
+				autenticacao.setAutenticado(true);
+				autenticacao.setId(loginConsultado.getId());
+				return autenticacao;
 			}else {
-				return "false";
+				autenticacao.setAutenticado(false);
+				return autenticacao;
 			}
 		}
-		return "false";
+		return autenticacao;
 	}
 
 	@Override

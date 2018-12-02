@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/*.war
+web: java -jar -Dserver.port=$PORT target/people-on-map-site.war

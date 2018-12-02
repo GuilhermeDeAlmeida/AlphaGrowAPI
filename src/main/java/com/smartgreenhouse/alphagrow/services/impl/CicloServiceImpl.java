@@ -19,6 +19,7 @@ public class CicloServiceImpl implements CicloService {
 	@Override
 	public Ciclo salvarCiclo(Ciclo ciclo) {
 		return cicloRepository.save(ciclo);
+		
 	}
 
 

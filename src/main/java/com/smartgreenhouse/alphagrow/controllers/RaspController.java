@@ -25,6 +25,7 @@ public class RaspController {
 	public ResponseEntity<ControladorRasp> obterControladorIdeal(@PathVariable(value = "token") String token){
 //			@RequestParam String token) {
 		return ResponseEntity.ok(raspService.obterControladoresIdeais(token));
+		
 	}
 	
 	@PostMapping()

@@ -20,5 +20,6 @@ public class CicloController {
 	@PostMapping
 	public ResponseEntity<Ciclo> salvarCiclo(@RequestBody Ciclo ciclo) {
 		return ResponseEntity.ok(cicloService.salvarCiclo(ciclo));
+		
 	}
 }

@@ -6,4 +6,5 @@ import com.smartgreenhouse.alphagrow.models.Ciclo;
 
 public interface CicloRepository extends MongoRepository<Ciclo, String>{
 
+	
 }

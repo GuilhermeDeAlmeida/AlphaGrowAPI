@@ -1,9 +1,14 @@
 package com.smartgreenhouse.alphagrow.services.impl;
 
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smartgreenhouse.alphagrow.models.Autenticacao;
+import com.smartgreenhouse.alphagrow.models.Ciclo;
 import com.smartgreenhouse.alphagrow.models.Login;
 import com.smartgreenhouse.alphagrow.models.Usuario;
 import com.smartgreenhouse.alphagrow.repositories.AutenticacaoRepository;
@@ -56,7 +61,40 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
 
 	@Override
 	public Login obterLogin(String idLogin) {
-		return loginRepository.findById(idLogin).get();
+		Login login = loginRepository.findById(idLogin).get();
+		validarCicloAtual(login);
+		return login;
+	}
+
+	private void validarCicloAtual(Login login) {
+		List<Ciclo> ciclos = login.getUsuario().getRasp().getCultivo().getCiclos();
+		Ciclo cicloAtual = new Ciclo();
+		boolean continuaCicloAtual = true;
+		boolean proximoEhCicloAtual = false;
+		for (Ciclo ciclo : ciclos) {
+			if (proximoEhCicloAtual) {
+				ciclo.setCicloAtual(true);
+				proximoEhCicloAtual = false;
+			}
+			if (ciclo.getCicloAtual()) {
+				cicloAtual = ciclo;
+				continuaCicloAtual = validarDataCicloAtual(cicloAtual);
+				if (!continuaCicloAtual) {
+					proximoEhCicloAtual = true;
+					ciclo.setCicloAtual(false);
+				}
+			}
+		}
+	}
+
+	private boolean validarDataCicloAtual(Ciclo cicloAtual) {
+		long diferencaDias = getDateDiff(new Date(), cicloAtual.getDataFim(), TimeUnit.DAYS);
+		return diferencaDias > 0;
+	}
+
+	public static long getDateDiff(Date daaInicial, Date dataFinal, TimeUnit timeUnit) {
+		long diffInMillies = dataFinal.getTime() - daaInicial.getTime();
+		return timeUnit.convert(diffInMillies, TimeUnit.MILLISECONDS);
 	}
 
 }

@@ -38,6 +38,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
 			if(login.getSenha().equals(loginConsultado.getSenha())) {
 				autenticacao.setAutenticado(true);
 				autenticacao.setId(loginConsultado.getId());
+				autenticacao.setToken(loginConsultado.getToken());
 				return autenticacao;
 			}else {
 				autenticacao.setAutenticado(false);

@@ -1,12 +1,14 @@
 package com.smartgreenhouse.alphagrow.models;
 
+import org.springframework.data.annotation.Id;
+
 public class Atuador {
 
+	@Id
+	private String id;
 	private String atuador;
 	private boolean estado;
 	private String token;
-
-	
 	
 	public Atuador(String atuador, boolean estado, String token) {
 		super();
@@ -19,6 +21,14 @@ public class Atuador {
 		
 	}
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getToken() {
 		return token;
 	}
